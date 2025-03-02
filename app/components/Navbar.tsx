@@ -6,12 +6,19 @@ export const Navbar = () => {
   return (
     <section>
       <nav className="flex h-20 justify-between items-center max-w-7xl mx-auto">
-        <Michi />
+        <Link to="/" className=" relative">
+          {" "}
+          <Michi />
+          <div className="absolute h-16 left-0  pl-20 top-0 flex items-center">
+            Brenda
+          </div>
+        </Link>
+
         <div className="flex gap-6">
-          <Tab title="Proyectos" />
-          <Tab title="Recursos" />
-          <Tab title="Saas" />
-          <Tab title="Blog" />
+          <Tab link="/projects" title="Proyectos" />
+          <Tab link="/saas" title="Saas" />
+          <Tab link="/resources" title="Recursos" />
+          <Tab link="/blog" title="Blog" />
         </div>
         <Button />
       </nav>
@@ -19,6 +26,10 @@ export const Navbar = () => {
   );
 };
 
-const Tab = ({ title }: { title: string }) => {
-  return <div className="">{title}</div>;
+const Tab = ({ title, link }: { title: string; link: string }) => {
+  return (
+    <Link to={link}>
+      <button className="">{title}</button>
+    </Link>
+  );
 };

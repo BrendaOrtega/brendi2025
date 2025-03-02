@@ -1,12 +1,56 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Roobert Light";
+  src: url(../public/fonts/RoobertLight.otf);
+}
+
+@font-face {
+  font-family: "Roobert Semibold";
+  src: url(../public/fonts/RoobertSemiBold.otf);
+}
+
+@font-face {
+  font-family: "Roobert Medium";
+  src: url(../public/fonts/RoobertMedium.otf);
+}
+
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --color-dark: #0e0e11;
-  --colot-brand: #ee706b;
+  --color-dark: #171717;
+  --color-brand: #9346ed;
+  --color-graylight: #747474;
+  --animate-scrolling: scrolling 40s linear infinite;
 }
 
+p {
+  font-family: "Roobert Light";
+}
+.font-title {
+  font-family: "Roobert Semibold";
+}
+
+.font-subtitle {
+  font-family: "Roobert Medium";
+}
+
+@keyframes scrolling {
+  from {
+    transform: translate(0%);
+  }
+  to {
+    transform: translate(calc(-50% - 0.5rem));
+  }
+}
+
+.family-oswald {
+  font-family: "Oswald", serif;
+}
+
+.family-lato {
+  font-family: "Lato", serif;
+}
 html,
 body {
   /* @apply bg-white dark:bg-gray-950;

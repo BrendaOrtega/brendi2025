@@ -1,8 +1,8 @@
 export default function Michi() {
   return (
     <iframe
-      width="60px"
-      className="h-auto cursor-pointer"
+      target="_parent"
+      className="h-16 cursor-pointer w-16  "
       src="/michi-animado.svg"
     />
   );

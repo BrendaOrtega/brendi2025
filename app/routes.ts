@@ -6,4 +6,5 @@ export default [
   route("/blog", "routes/blog.tsx"),
   route("/resources", "routes/resources.tsx"),
   route("/projects", "routes/projects.tsx"),
+  route("/projects/flink", "routes/projects/flink.tsx"),
 ] satisfies RouteConfig;

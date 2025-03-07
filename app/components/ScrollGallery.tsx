@@ -66,7 +66,7 @@ export const ScrollGallery = ({
       ref={target}
       className="text-white h-[500vh] bg-transparent relative"
     >
-      <section className="sticky top-0 h-screen flex justify-center items-center gap-6">
+      <section className="sticky top-0 h-screen flex justify-center items-center gap-6 ">
         {/* <header className="">
           <h2 className="lg:text-7xl text-5xl font-bold mb-3 lg:mb-10">
             {title}
@@ -104,7 +104,7 @@ export const ScrollGallery = ({
         </main>
         <footer className="w-[820px] bg-amber-600"></footer>
       </section>
-      <section className="absolute top-0 flex flex-col h-max">
+      <section className="absolute top-0 flex flex-col h-max  ">
         {/* <div className="h-[90vh]" /> */}
         {groups.map((g, i) => (
           <Actions
@@ -138,7 +138,7 @@ const Actions = ({
   return (
     <motion.div
       className={cn(
-        "h-screen lg:flex flex-col pl-[55%] gap-6 hidden justify-center",
+        "h-screen lg:flex flex-col pl-[50%] gap-6 hidden justify-center ",
         {
           // "h-[70vh]": isLast,
         }
@@ -155,19 +155,21 @@ const Actions = ({
       </p>
       <div className="flex gap-4 mt-12">
         {group.links.map((l, i) => (
-          <button
-            key={i}
-            className={cn(
-              "hover:scale-110 cursor-pointer transition-all",
-              "py-3 px-6 bg-gray-200 text-black rounded-full",
-              {
-                "bg-white text-black": i === 1,
-                "bg-transparent border-2": i === 2,
-              }
-            )}
-          >
-            {l.text}
-          </button>
+          <a href={l.link} target="_blank" rel="noopener noreferrer">
+            <button
+              key={i}
+              className={cn(
+                "hover:scale-110 cursor-pointer transition-all",
+                "py-3 px-6 bg-gray-200 text-black rounded-full",
+                {
+                  "bg-white text-black": i === 1,
+                  "bg-transparent border-2": i === 2,
+                }
+              )}
+            >
+              {l.text}
+            </button>
+          </a>
         ))}
       </div>
     </motion.div>
@@ -221,10 +223,11 @@ const AnimatedGallery = ({
   }, [isPlaying]);
   return (
     <motion.div
-      className="absolute inset-0"
+      className="absolute inset-0 "
       style={{
-        backgroundImage: `url('${srcset[next]}')`,
+        // backgroundImage: `url('${srcset[next]}')`,
         backgroundPosition: "cover",
+        backgroundColor: "#9346ed",
         backgroundSize: "cover",
         clipPath,
         y,
@@ -232,6 +235,7 @@ const AnimatedGallery = ({
     >
       <AnimatePresence>
         <motion.img
+          className=""
           onMouseEnter={onMouseEnter}
           key={current}
           src={srcset[current]}
@@ -264,12 +268,12 @@ const Block = ({
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       className={cn(
-        "overflow-hidden lg:w-[24vw] lg:h-[60vh] w-[40vw] h-[50vh] bg-transparent rounded-3xl",
-        "relative",
-        "bg-indigo-500"
+        "overflow-hidden outline-solid outline-black/5 bg-cover bg-center lg:w-[24vw] lg:h-[60vh] w-[40vw] h-[50vh] bg-transparent rounded-3xl denik",
+        "relative"
+        // "bg-indigo-500"
       )}
       style={{
-        backgroundImage: "url('/scroll_gallery/beauty.webp')",
+        // backgroundImage: "url('/projects/denik2.png')",
         backgroundSize: "cover",
       }}
       {...props}

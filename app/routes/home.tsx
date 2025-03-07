@@ -12,24 +12,34 @@ import {
   useSpring,
   AnimatePresence,
 } from "motion/react";
-import { useRef, useState, type ReactNode } from "react";
+import { useRef, useState, type ReactNode, type RefObject } from "react";
 import { delay, MotionValue } from "motion";
+import { FlipWords } from "~/components/FlipWords";
+import { cn } from "~/utils/cn";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "Brenda González Ortega | Product Designer" },
+    { name: "description", content: "Let's talk!" },
   ];
 }
 
-const MiniCard = ({ id }: { id: string }) => {
+const MiniCard = ({
+  id,
+  img,
+  number,
+}: {
+  id: string;
+  img?: string;
+  number: string;
+}) => {
   return (
-    <motion.div layoutId={id} className="w-[80px] h-32 rounded-xl">
+    <motion.div layoutId={id} className="w-[70px] h-32 ">
       <img
-        className="w-full h-28"
-        src="https://www.brendago.design/images/projects/flink.png"
+        className="w-full h-[105px] rounded object-cover object-center"
+        src={img}
       />
-      <span>01</span>
+      <span className="font-bold font-title ">{number}</span>
     </motion.div>
   );
 };
@@ -46,27 +56,40 @@ export default function Home() {
   });
 
   return (
-    <section>
+    <section className="bg-white">
       <Navbar />
-      <section className="max-w-5xl mx-auto h-[70vh] ">
+      <section className="max-w-5xl mx-auto h-[70vh]  ">
         <div className="flex items-center justify-between h-full ">
-          <h1 className="text-6xl font-title w-[60%] leading-snug">
-            Hello, I'm Brenda. I'm a Product Designer based in México.
+          <h1 className="text-6xl font-title w-[63%] leading-snug ">
+            Hello, I'm Brenda. <br /> I'm a{" "}
+            <span className="font-extrabold text-6xl text-brand">
+              <FlipWords
+                words={[
+                  "Product Designer",
+                  "UX Designer",
+                  "Web Designer",
+                  "Web Developer",
+                ]}
+              />
+            </span>{" "}
+            <br />
+            based in México.
           </h1>
-          <div className="w-[40%] flex justify-center">
+          <div className="w-[37%] flex justify-center">
             <img className="ml-32" src="/emoji.png" alt="emoji de brenda" />
           </div>
         </div>
       </section>
       <AnimatePresence>
-        <section key={12} className="flex gap-6 justify-center my-10 h-[128px]">
-          {!show && (
-            <>
-              <MiniCard id="uno" />
-              <MiniCard id="dos" />
-              <MiniCard id="tres" />
-            </>
-          )}
+        <section
+          key={12}
+          className="flex gap-6 justify-center my-10 h-[128px] relative z-20"
+        >
+          <>
+            <MiniCard id="uno" img="/small-easybits.png" number="01" />
+            <MiniCard id="dos" img="/small-flink.png" number="02" />
+            <MiniCard id="tres" img="/small-denik.png" number="03" />
+          </>
         </section>
         <section
           key={233}
@@ -76,59 +99,222 @@ export default function Home() {
           {show && <ScrollHorizontal />}
         </section>
       </AnimatePresence>
-      <About text="I am Product & UX Designer that studied economics. I started my tech career as frontend developer to eventually become a Product Designer. I’ve been working on web and mobile applications for more than 9 years, and I absolutely love what I do. I focus on designing complex and functional products that help user and business reach their goals. I really enjoy create experiences that users find useful and easy to understand. If you want to know more about me, know more about what I’m working on, or talk about working together, feel free to email me." />
+      <About
+        text="I am Product & UX Designer that studied economics. I started my tech career as frontend developer to eventually become a Product Designer. I’ve been working on web and mobile applications for more than 9 years and I absolutely love what I do."
+        texttwo="I focus on designing complex and functional products that help users and business reach their goals. I really enjoy create experiences that users find useful and easy to understand. If you want to know more about me, know more about what I do , or talk about working together, feel free to email me."
+      />
 
       <Skills
-        titles={["UX design", "UI design", "Research", "Web development"]}
+        titles={["UX design", "UI design", "Product Design", "Web design"]}
+        images={["/ux.png", "/ui.png", "/pd.png", "/web.png"]}
       />
+      <Gallery />
       <Footer />
     </section>
   );
 }
 
+const Gallery = () => {
+  const ref = useRef(null);
+  return (
+    <main className="bg-black ">
+      <h2 className="text-white text-center justify-center text-4xl font-title flex items-center">
+        Play with my pictures <img className="w-44 -ml-8" src="/loader4.gif" />
+      </h2>
+
+      <section
+        ref={ref}
+        className="flex items-center gap-12  h-[300px] relative z-50 "
+      >
+        <GalleryImage
+          ref={ref}
+          className="rotate-6"
+          img="/projects/foto1.webp"
+        />
+        <GalleryImage
+          ref={ref}
+          className="-rotate-6"
+          img="/projects/foto2.webp"
+        />
+        <GalleryImage
+          ref={ref}
+          className="rotate-6"
+          img="/projects/foto3.webp"
+        />
+        <GalleryImage
+          ref={ref}
+          className="rotate-3"
+          img="/projects/foto4.webp"
+        />
+        <GalleryImage
+          ref={ref}
+          className="-rotate-12"
+          img="/projects/foto5.webp"
+        />
+        <GalleryImage
+          ref={ref}
+          className="rotate-2"
+          img="/projects/foto6.webp"
+        />
+        <GalleryImage
+          ref={ref}
+          className="rotate-0"
+          img="/projects/foto7.webp"
+        />
+        <GalleryImage
+          ref={ref}
+          className="-rotate-12"
+          img="/projects/foto8.webp"
+        />
+        <GalleryImage
+          ref={ref}
+          className="rotate-12"
+          img="/projects/foto9.webp"
+        />
+        <GalleryImage
+          ref={ref}
+          className="-rotate-6"
+          img="/projects/foto10.webp"
+        />
+      </section>
+    </main>
+  );
+};
+
+const GalleryImage = ({
+  img,
+  className,
+  ref,
+}: {
+  img: string;
+  className?: string;
+  ref: RefObject<HTMLElement>;
+}) => {
+  return (
+    <motion.div
+      whileTap={{ cursor: "grabbing" }}
+      drag
+      dragTransition={{ bounceStiffness: 500, bounceDamping: 15 }}
+      dragElastic={0.2}
+      // dragSnapToOrigin
+      dragConstraints={ref}
+      className={cn(
+        "w-40 h-40   bg-white px-2 pt-2 relative cursor-grab   ",
+        className
+      )}
+    >
+      <img
+        className="object-cover w-full h-[75%]  pointer-events-none"
+        alt=""
+        src={img}
+      />
+      <img className="w-8 absolute right-0 bottom-4" src="/line.svg" />
+      <img className="w-6 absolute left-0 bottom-6" src="/line.svg" />
+    </motion.div>
+  );
+};
+
 export const Footer = () => {
   return (
-    <section className="min-h-screen bg-black flex items-center justify-center ">
+    <section className="min-h-screen bg-black flex items-center justify-center relative ">
       <div className="text-center text-2xl ">
         <p className="text-graylight mb-6 font-light">
           The best ideas start as conversations
         </p>
         <h3 className="text-9xl text-white font-title">Let's talk!</h3>{" "}
-        <Button className="mt-16" label="Email me" />
-        <div className="text-white/20 flex gap-4 justify-center mt-16">
-          <AiFillInstagram />
-          <FaGithub />
-          <FaLinkedinIn />
-          <FaYoutube />
+        <div className="flex gap-6 justify-center">
+          {" "}
+          <Button className="mt-16" label="Email me" variant="white" />
+          <Button className="mt-16" label="Contact me" />
         </div>
+        <div className="text-white/20 flex gap-4 justify-center mt-16 text-3xl">
+          <a
+            href="https://www.instagram.com/brenda_orteg/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <AiFillInstagram className="hover:opacity-75 cursor-pointer transition-all hover:scale-90" />
+          </a>
+          <a
+            href="https://github.com/BrendaOrtega"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaGithub className="hover:opacity-75 cursor-pointer transition-all hover:scale-90" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/brendago/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaLinkedinIn className="hover:opacity-75 cursor-pointer transition-all hover:scale-90" />
+          </a>
+          <a
+            href="https://www.youtube.com/@fixtergeek8057"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaYoutube className="hover:opacity-75 cursor-pointer transition-all hover:scale-90" />
+          </a>
+        </div>
+      </div>
+      <img
+        className="absolute bottom-0 w-20 right-0"
+        src="/projects/yarn.svg"
+      />
+      <div className="absolute bottom-6 w-full flex justify-center text-graylight/40">
+        © 2025 Brenda González Ortega - All rights reserved.
       </div>
     </section>
   );
 };
 
-const About = ({ text }: { text: string }) => {
+const About = ({ text, texttwo }: { text: string; texttwo: string }) => {
   const words = text.split(" ");
+  const letters = texttwo.split(" ");
   const target = useRef(null);
   const { scrollYProgress } = useScroll({
     target,
-    offset: ["start center", "end end"],
+    offset: ["start start", "end end"],
   });
   return (
     <section
       ref={target}
-      className="min-h-[150vh] bg-white flex items-center justify-center"
+      className="min-h-[150vh] bg-white flex flex-col items-start justify-center relative"
     >
-      <div className="max-w-7xl mx-auto text-5xl leading-snug text-black text-center flex flex-wrap gap-x-2">
-        {words.map((word, i) => (
-          <Word
-            range={[0, (1 / words.length) * (i === 0 ? 1 : i)]}
-            scrollYProgress={scrollYProgress}
-            key={i}
-          >
-            {word}
-          </Word>
-        ))}
-        <Photos />
+      {/* <img className="absolute -bottom-14 right-80 w-56" src="/Cat.gif" /> */}
+      <div className="max-w-7xl mx-auto">
+        <img className="w-24 mb-6" src="/yarn.png" alt="estambre" />
+        <div className=" text-5xl leading-snug text-black text-center flex flex-wrap gap-x-2">
+          {words.map((word, i) => (
+            <Word
+              range={[
+                0,
+                (1 / (words.length + letters.length)) * (i === 0 ? 1 : i),
+              ]}
+              scrollYProgress={scrollYProgress}
+              key={i}
+            >
+              {word}
+            </Word>
+          ))}
+        </div>{" "}
+        <div className=" text-5xl leading-snug text-black text-center flex flex-wrap gap-x-2 mt-6">
+          {letters.map((letter, i) => (
+            <Word
+              range={[
+                0,
+                (1 / (words.length + letters.length)) *
+                  (i === words.length ? 1 : i + words.length),
+              ]}
+              scrollYProgress={scrollYProgress}
+              key={i}
+            >
+              {letter}
+            </Word>
+          ))}
+          <Photos />
+        </div>{" "}
       </div>
     </section>
   );
@@ -137,18 +323,19 @@ const About = ({ text }: { text: string }) => {
 const Photos = () => {
   return (
     <div className="flex ">
-      <div className="w-20 bg-white h-24 rounded p-2 shadow border-black/20 -rotate-6">
-        <img
-          className="w-full h-14 rounded "
-          src="https://scontent.fmex5-1.fna.fbcdn.net/v/t39.30808-6/468665523_8696026667159311_3395242937681563323_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=142&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=1CQbCxk6kO4Q7kNvgFI7GEq&_nc_oc=AdhU3m_4AKkYELzp8QAutx4WCzkRdxFsVCieAY9z9LLiyKuKeLiYdiXjvXWsaTWDseo&_nc_zt=23&_nc_ht=scontent.fmex5-1.fna&_nc_gid=Ad2-xcpaJ__M9P9l8EM067m&oh=00_AYCsE6gQ5v6FijOa_RbGpIb20ogc5M1crjyUPxYxhVQzSw&oe=67C96A94"
-        />
+      <div className="w-20 bg-white h-24 rounded p-2 shadow border-black/20 -rotate-6 hover:rotate-6 transition-all">
+        <img className="w-full h-20 rounded object-cover " src="/yo.webp" />
       </div>
-      <div className="w-20  bg-white h-24 rounded p-2 shadow border-black/20 rotate-6 -ml-2 z-10">
-        <img
-          className="w-full h-14 rounded "
-          src="https://scontent.fmex5-1.fna.fbcdn.net/v/t39.30808-6/468665523_8696026667159311_3395242937681563323_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=1CQbCxk6kO4Q7kNvgFI7GEq&_nc_oc=AdhU3m_4AKkYELzp8QAutx4WCzkRdxFsVCieAY9z9LLiyKuKeLiYdiXjvXWsaTWDseo&_nc_zt=23&_nc_ht=scontent.fmex5-1.fna&_nc_gid=Ad2-xcpaJ__M9P9l8EM067m&oh=00_AYCsE6gQ5v6FijOa_RbGpIb20ogc5M1crjyUPxYxhVQzSw&oe=67C96A94"
-        />
+      <div className="w-20  bg-white h-24 rounded p-2 shadow border-black/20 rotate-6 -ml-2 hover:-rotate-6 transition-all ">
+        <img className="w-full h-20 rounded object-cover" src="/yo2.webp" />
       </div>
+      <a href="mailto:bremin11.20.93@gmail.com" target="_blank">
+        <div className="w-20  bg-white h-24 rounded p-2 shadow border-black/20 -rotate-6 -ml-2 hover:rotate-6 transition-all">
+          <div className="w-full h-20 rounded grid place-content-center  bg-[#F2C94C]">
+            <img className="w-10" src="/projects/mail.svg" />
+          </div>
+        </div>{" "}
+      </a>
     </div>
   );
 };
@@ -163,20 +350,28 @@ const Word = ({
   scrollYProgress: MotionValue<number>;
 }) => {
   const spring = useSpring(scrollYProgress, { bounce: 0 });
-  const opacity = useTransform(spring, range, [0.1, 1]);
-  const filter = useTransform(spring, range, ["blur(10px)", "blur(0px)"]);
-  const y = useTransform(spring, range, [50, 0]);
-  const skewX = useTransform(spring, range, [20, 0]);
-  const scale = useTransform(spring, range, [1.1, 1]);
+  // const opacity = useTransform(spring, range, [0.1, 1]);
+  const color = useTransform(scrollYProgress, range, ["#DCDCDC", "#000000"]);
+  const shadow = useTransform(scrollYProgress, range, [
+    "#9346ed 1px 0 10px",
+    "#000000 1px 0 10px",
+  ]);
+  const filter = useTransform(scrollYProgress, range, [
+    "blur(10px)",
+    "blur(0px)",
+  ]);
+  const y = useTransform(scrollYProgress, range, [50, 0]);
+  const skewX = useTransform(scrollYProgress, range, [20, 0]);
+  // const scale = useTransform(spring, range, [1.1, 1]);
   return (
     <motion.span
-      className=""
+      className="font-subtitle"
       style={{
-        opacity,
+        color,
         // filter,
         // y,
         skewX,
-        scale,
+        // scale,
       }}
     >
       {children}
@@ -184,24 +379,105 @@ const Word = ({
   );
 };
 
-const Skills = ({ titles }: { titles: string[] }) => {
+const Skills = ({
+  titles = [" "],
+  images = [" "],
+}: {
+  titles?: string[];
+  images?: string[];
+}) => {
   const target = useRef(null);
   const { scrollYProgress } = useScroll({
     target,
     offset: ["start start", "end end"],
   });
   return (
-    <section ref={target} className="h-[400vh] bg-pink-400">
-      <div className="sticky top-0 bg-black h-screen text-white">
-        <div className="grid place-content-center h-full">
-          <img
-            className="aspect-square w-40 mx-auto mb-20"
-            src="/flink-bg.png"
-          />
-          <Rotators scrollYProgress={scrollYProgress} titles={titles} />
+    <section ref={target} className="h-[400vh] ">
+      <div className="sticky top-0 bg-black pt-40 h-screen text-white">
+        <div className="grid place-content-center h-full pt-0">
+          <div>
+            <RotatorsImages scrollYProgress={scrollYProgress} images={images} />
+            <Rotators scrollYProgress={scrollYProgress} titles={titles} />{" "}
+          </div>
         </div>
       </div>
     </section>
+  );
+};
+
+const RotatorsImages = ({
+  images,
+  scrollYProgress,
+}: {
+  scrollYProgress: MotionValue<number>;
+  images: string[];
+}) => {
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "-85%"]);
+
+  const range = [
+    [0, 0.12, 0.25, 0.27],
+    [0.25, 0.27, 0.47, 0.49],
+    [0.47, 0.5, 0.75, 0.77],
+    [0.75, 0.77, 1, 1],
+  ];
+
+  return (
+    <motion.main
+      style={{ perspective: 1000, transformStyle: "preserve-3d", y }}
+      className=" relative  items-center h-0 bg-pink-700 justify-center mb-40 z-20 "
+    >
+      {images.map((image, i) => (
+        <RotatorImages
+          i={i}
+          key={i}
+          range={range[i]}
+          scrollYProgress={scrollYProgress}
+          image={image}
+        />
+      ))}
+    </motion.main>
+  );
+};
+
+const RotatorImages = ({
+  image,
+  scrollYProgress,
+  range,
+  i,
+}: {
+  range: number[];
+  scrollYProgress: MotionValue<number>;
+  image: string;
+  i: number;
+}) => {
+  const getInitialValue = (initial: number | string, final: number | string) =>
+    i === 0 ? initial : final;
+
+  const opacity = useTransform(scrollYProgress, range, [
+    i === 0 ? 1 : 0,
+    1,
+    1,
+    i === 3 ? 1 : 0,
+  ]);
+
+  const scale = useTransform(scrollYProgress, range, [
+    getInitialValue(1, 0.6),
+    1,
+    1,
+    i === 3 ? 1 : 0.5,
+  ]);
+  const filter = useTransform(scrollYProgress, range, [
+    getInitialValue("blur(0px)", "blur(4px)"),
+    "blur(0px)",
+    "blur(0px)",
+    i === 3 ? "blur(0px)" : "blur(4px)",
+  ]);
+  return (
+    <motion.img
+      className=" h-40 w-auto mx-auto  absolute inset-0 "
+      style={{ opacity, filter, scale }}
+      src={image}
+    />
   );
 };
 
@@ -212,11 +488,11 @@ const Rotators = ({
   scrollYProgress: MotionValue<number>;
   titles: string[];
 }) => {
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "-85%"]);
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "-70%"]);
   return (
     <motion.main
       style={{ perspective: 1000, transformStyle: "preserve-3d", y }}
-      className="flex flex-col relative  items-center h-full justify-center text-7xl font-extrabold gap-10 "
+      className="flex flex-col  relative  items-center h-full justify-center text-7xl font-extrabold gap-10 "
     >
       {titles.map((title, i) => (
         <Rotator
@@ -227,6 +503,7 @@ const Rotators = ({
           {title}
         </Rotator>
       ))}
+      <motion.h2 className="tracking-wide uppercase">Web development</motion.h2>
     </motion.main>
   );
 };

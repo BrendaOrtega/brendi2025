@@ -41,23 +41,21 @@ export default function Blog() {
 
 const BlogCard = ({ tags }: { tags: string[] }) => {
   return (
-    <div
-      className="bg-[url(/flink-bg.png)] relative bg-center rounded-4xl overflow-hidden col-span-1 h-[380px] outline-solid
-outline-black/5 flex items-end justify-center  group "
-    >
+    <div className=" relative bg-center rounded-4xl overflow-hidden  col-span-1 h-[480px] cursor-pointer  flex items-end justify-center  group ">
       <img
-        className="absolute w-full h-full object-cover group-hover:scale-110 delay-150 transition-all "
+        className="absolute top-0 left-0 w-full h-full object-cover rounded-3xl group-hover:scale-110 transition-all"
         src="/flink-bg.png"
       />
-      <div className="rounded-2xl bg-white h-[40%] w-full group-hover:h-[45%] transition-all relative px-6 pt-4">
-        <span className="text-xs text-graylight/70">hace 3 meses</span>
-        <h3 className="text-xl font-title">
-          Retícula 8pt: ¿Qué es y por qué utilizarla?
-        </h3>
-        <div className="absolute bottom-6 flex gap-3 text-graylight">
-          {tags.map((tag, index) => (
-            <Tag key={index} label={tag} />
-          ))}
+      <div className="bg-[url(/surface.png)] w-full h-full flex items-end pl-4 pb-4 -ml-[1px] mt-[1px] bg-no-repeat z-20 ">
+        <div>
+          <h3 className="text-xl font-title w-[80%] mb-3 group-hover:underline transition-all ">
+            Retícula 8pt: ¿Qué es y por qué utilizarla?
+          </h3>
+          <div className=" flex gap-3 text-graylight">
+            {tags.map((tag, index) => (
+              <Tag key={index} label={tag} />
+            ))}
+          </div>{" "}
         </div>
       </div>
     </div>

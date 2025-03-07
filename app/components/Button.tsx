@@ -1,14 +1,17 @@
 import { motion, useSpring } from "motion/react";
 import { twMerge } from "tailwind-merge";
+import { cn } from "~/utils/cn";
 
 export const Button = ({
   label,
   className,
   delay = 0,
+  variant,
 }: {
   label?: string;
   delay?: number;
   className?: string;
+  variant?: string;
 }) => {
   const scale = useSpring(0.5);
   return (
@@ -28,7 +31,12 @@ export const Button = ({
       transition={{ duration: 1, type: "spring", delay }}
       className={twMerge(" cursor-pointer ", className)}
     >
-      <button className="bg-[#9346ed] text-white text-lg  hover:translate-x-1 hover:translate-y-1 transition-all cursor-pointer rounded-full px-4 h-12">
+      <button
+        className={cn(
+          "bg-[#9346ed] text-white text-lg  hover:translate-x-1 hover:translate-y-1 transition-all cursor-pointer rounded-full px-4 h-12",
+          { "bg-white text-black": variant === "white" }
+        )}
+      >
         <p>{label ? label : "Let's talk"}</p>
       </button>
     </motion.div>

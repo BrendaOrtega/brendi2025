@@ -2,17 +2,17 @@
 
 @font-face {
   font-family: "Roobert Light";
-  src: url(../public/fonts/RoobertLight.otf);
+  src: url(/fonts/RoobertLight.otf);
 }
 
 @font-face {
   font-family: "Roobert Semibold";
-  src: url(../public/fonts/RoobertSemiBold.otf);
+  src: url(/fonts/RoobertSemiBold.otf);
 }
 
 @font-face {
   font-family: "Roobert Medium";
-  src: url(../public/fonts/RoobertMedium.otf);
+  src: url(/fonts/RoobertMedium.otf);
 }
 
 @theme {
@@ -24,6 +24,9 @@
   --animate-scrolling: scrolling 40s linear infinite;
 }
 
+body {
+  background-color: black;
+}
 p {
   font-family: "Roobert Light";
 }
@@ -33,6 +36,15 @@ p {
 
 .font-subtitle {
   font-family: "Roobert Medium";
+}
+
+.denik {
+  background-image: url("/projects/denik1.png");
+}
+
+.denik:hover {
+  cursor: pointer;
+  /* background-image: url("/projects/denik2.png"); */
 }
 
 @keyframes scrolling {

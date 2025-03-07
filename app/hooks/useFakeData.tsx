@@ -1,9 +1,9 @@
 export const images = [
-  "https://images.pexels.com/photos/1251828/pexels-photo-1251828.jpeg?auto=compress&cs=tinysrgb&w=1200",
-  "https://images.pexels.com/photos/1684151/pexels-photo-1684151.jpeg?auto=compress&cs=tinysrgb&w=1200",
-  "https://images.pexels.com/photos/2682452/pexels-photo-2682452.jpeg?auto=compress&cs=tinysrgb&w=1200",
-  "https://images.pexels.com/photos/3184433/pexels-photo-3184433.jpeg?auto=compress&cs=tinysrgb&w=1200",
-  "https://images.pexels.com/photos/4066041/pexels-photo-4066041.jpeg?auto=compress&cs=tinysrgb&w=1200",
+  "https://i.imgur.com/IdRFCH6.png",
+  "https://i.imgur.com/hvkXIDW.png",
+  "https://i.imgur.com/xnuWWXh.png",
+  "https://i.imgur.com/Bp3UKtS.png",
+  "https://i.imgur.com/oP26Xa0.png",
 ];
 
 export type Group = {
@@ -52,7 +52,7 @@ const groups = [
       //   },
     ],
     paragraph:
-      " Do you want to seel ilustrations, couses, books, webinars, templates o apps? EasyBits is the solution to sell your digital assets online. ",
+      " Do you want to sell ilustrations, couses, books, webinars, templates o apps? EasyBits is the solution to sell your digital assets online. ",
   },
   {
     images,

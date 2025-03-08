@@ -3,7 +3,12 @@ import { Navbar } from "~/components/Navbar";
 import { ScrollHorizontal } from "~/components/ScrollHorizontal";
 import { Button } from "~/components/Button";
 import { AiFillInstagram } from "react-icons/ai";
-import { FaGithub, FaLinkedinIn, FaYoutube } from "react-icons/fa6";
+import {
+  FaArrowUpLong,
+  FaGithub,
+  FaLinkedinIn,
+  FaYoutube,
+} from "react-icons/fa6";
 import {
   useMotionValueEvent,
   useScroll,
@@ -16,13 +21,15 @@ import { useRef, useState, type ReactNode, type RefObject } from "react";
 import { delay, MotionValue } from "motion";
 import { FlipWords } from "~/components/FlipWords";
 import { cn } from "~/utils/cn";
+import getBasicMetaTags from "~/utils/getBasicMetatags";
+import { Link } from "react-router";
+import CircularText from "~/components/CircularText";
 
-export function meta({}: Route.MetaArgs) {
-  return [
-    { title: "Brenda González Ortega | Product Designer" },
-    { name: "description", content: "Let's talk!" },
-  ];
-}
+export const meta = () =>
+  getBasicMetaTags({
+    title: "Brenda González Ortega | Product Designer",
+    description: "Take a look at my work",
+  });
 
 const MiniCard = ({
   id,
@@ -34,13 +41,15 @@ const MiniCard = ({
   number: string;
 }) => {
   return (
-    <motion.div layoutId={id} className="w-[70px] h-32 ">
-      <img
-        className="w-full h-[105px] rounded object-cover object-center"
-        src={img}
-      />
-      <span className="font-bold font-title ">{number}</span>
-    </motion.div>
+    <div className="w-[70px] h-32">
+      <motion.div layoutId={id} className=" ">
+        <img
+          className="w-full h-[105px] rounded object-cover object-center"
+          src={img}
+        />
+      </motion.div>
+      <span className="font-bold font-title ">{number}</span>{" "}
+    </div>
   );
 };
 
@@ -56,7 +65,7 @@ export default function Home() {
   });
 
   return (
-    <section className="bg-white">
+    <section className="bg-white ">
       <Navbar />
       <section className="max-w-5xl mx-auto h-[70vh]  ">
         <div className="flex items-center justify-between h-full ">
@@ -81,35 +90,40 @@ export default function Home() {
         </div>
       </section>
       <AnimatePresence>
-        <section
-          key={12}
-          className="flex gap-6 justify-center my-10 h-[128px] relative z-20"
-        >
-          <>
-            <MiniCard id="uno" img="/small-easybits.png" number="01" />
-            <MiniCard id="dos" img="/small-flink.png" number="02" />
-            <MiniCard id="tres" img="/small-denik.png" number="03" />
-          </>
-        </section>
+        <div className="h-[128px] my-10">
+          {!show && (
+            <section
+              key={12}
+              className="flex gap-6 justify-center  h-full relative z-20 "
+            >
+              <>
+                <MiniCard id="uno" img="/small-easybits.png" number="01" />
+                <MiniCard id="dos" img="/small-flink.png" number="02" />
+                <MiniCard id="tres" img="/small-denik.png" number="03" />
+              </>
+            </section>
+          )}
+        </div>
         <section
           key={233}
-          className="bg-[url(/cover.svg)] bg-center object-contain min-h-screen "
+          className="bg-[url(/cover.svg)]  bg-center object-contain min-h-screen   "
           ref={target}
         >
-          {show && <ScrollHorizontal />}
+          <ScrollHorizontal />
         </section>
-      </AnimatePresence>
+      </AnimatePresence>{" "}
       <About
         text="I am Product & UX Designer that studied economics. I started my tech career as frontend developer to eventually become a Product Designer. I’ve been working on web and mobile applications for more than 9 years and I absolutely love what I do."
         texttwo="I focus on designing complex and functional products that help users and business reach their goals. I really enjoy create experiences that users find useful and easy to understand. If you want to know more about me, know more about what I do , or talk about working together, feel free to email me."
       />
-
       <Skills
         titles={["UX design", "UI design", "Product Design", "Web design"]}
         images={["/ux.png", "/ui.png", "/pd.png", "/web.png"]}
       />
-      <Gallery />
-      <Footer />
+      <div className="overflow-x-hidden">
+        <Gallery />
+        <Footer />{" "}
+      </div>
     </section>
   );
 }
@@ -117,14 +131,14 @@ export default function Home() {
 const Gallery = () => {
   const ref = useRef(null);
   return (
-    <main className="bg-black ">
-      <h2 className="text-white text-center justify-center text-4xl font-title flex items-center">
+    <main className="bg-black h-[500px] pt-20 ">
+      <h2 className="text-white text-center justify-center text-4xl   font-title flex items-center">
         Play with my pictures <img className="w-44 -ml-8" src="/loader4.gif" />
       </h2>
 
       <section
         ref={ref}
-        className="flex items-center gap-12  h-[300px] relative z-50 "
+        className="flex items-start gap-12  pt-16 h-full relative z-50 "
       >
         <GalleryImage
           ref={ref}
@@ -215,17 +229,29 @@ const GalleryImage = ({
 };
 
 export const Footer = () => {
+  const handleClick = () => {
+    const node = document.querySelector("#top");
+    node.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <section className="min-h-screen bg-black flex items-center justify-center relative ">
       <div className="text-center text-2xl ">
         <p className="text-graylight mb-6 font-light">
           The best ideas start as conversations
         </p>
-        <h3 className="text-9xl text-white font-title">Let's talk!</h3>{" "}
+        <h3 className="text-9xl text-white font-title">Let's work together</h3>{" "}
         <div className="flex gap-6 justify-center">
           {" "}
-          <Button className="mt-16" label="Email me" variant="white" />
-          <Button className="mt-16" label="Contact me" />
+          <a
+            href="mailto:bremin11.20.93@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button className="mt-16" label="Email me" variant="white" />
+          </a>
+          <Link to="/contact">
+            <Button className="mt-16" />
+          </Link>
         </div>
         <div className="text-white/20 flex gap-4 justify-center mt-16 text-3xl">
           <a
@@ -258,12 +284,20 @@ export const Footer = () => {
           </a>
         </div>
       </div>
-      <img
-        className="absolute bottom-0 w-20 right-0"
-        src="/projects/yarn.svg"
-      />
+      <img className="absolute bottom-0 w-20 left-0" src="/projects/yarn.svg" />
       <div className="absolute bottom-6 w-full flex justify-center text-graylight/40">
         © 2025 Brenda González Ortega - All rights reserved.
+      </div>
+      <div onClick={handleClick} className="absolute right-16 bottom-16 ">
+        <span className=" absolute w-full h-full grid place-content-center">
+          <FaArrowUpLong className="text-white text-2xl mx-auto" />
+        </span>
+        <CircularText
+          text="BACK*TO*THE*TOP*"
+          onHover="speedUp"
+          spinDuration={20}
+          className="custom-class "
+        />
       </div>
     </section>
   );
@@ -329,7 +363,11 @@ const Photos = () => {
       <div className="w-20  bg-white h-24 rounded p-2 shadow border-black/20 rotate-6 -ml-2 hover:-rotate-6 transition-all ">
         <img className="w-full h-20 rounded object-cover" src="/yo2.webp" />
       </div>
-      <a href="mailto:bremin11.20.93@gmail.com" target="_blank">
+      <a
+        href="mailto:bremin11.20.93@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <div className="w-20  bg-white h-24 rounded p-2 shadow border-black/20 -rotate-6 -ml-2 hover:rotate-6 transition-all">
           <div className="w-full h-20 rounded grid place-content-center  bg-[#F2C94C]">
             <img className="w-10" src="/projects/mail.svg" />
@@ -392,10 +430,13 @@ const Skills = ({
     offset: ["start start", "end end"],
   });
   return (
-    <section ref={target} className="h-[400vh] ">
+    <section ref={target} className="h-[350vh] ">
       <div className="sticky top-0 bg-black pt-40 h-screen text-white">
         <div className="grid place-content-center h-full pt-0">
           <div>
+            <p className="text-lg md:text-xl text-graylight text-center font-light mb-10">
+              What I do?
+            </p>
             <RotatorsImages scrollYProgress={scrollYProgress} images={images} />
             <Rotators scrollYProgress={scrollYProgress} titles={titles} />{" "}
           </div>
@@ -424,7 +465,7 @@ const RotatorsImages = ({
   return (
     <motion.main
       style={{ perspective: 1000, transformStyle: "preserve-3d", y }}
-      className=" relative  items-center h-0 bg-pink-700 justify-center mb-40 z-20 "
+      className=" relative  items-center h-0 bg-pink-700 justify-center  mb-48 z-20 "
     >
       {images.map((image, i) => (
         <RotatorImages
@@ -488,11 +529,11 @@ const Rotators = ({
   scrollYProgress: MotionValue<number>;
   titles: string[];
 }) => {
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "-70%"]);
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "-65%"]);
   return (
     <motion.main
       style={{ perspective: 1000, transformStyle: "preserve-3d", y }}
-      className="flex flex-col  relative  items-center h-full justify-center text-7xl font-extrabold gap-10 "
+      className="flex flex-col  relative    items-center h-full justify-center text-7xl font-extrabold gap-10 "
     >
       {titles.map((title, i) => (
         <Rotator

@@ -7,13 +7,13 @@ import { AiFillInstagram } from "react-icons/ai";
 import { FaGithub, FaLinkedinIn, FaYoutube } from "react-icons/fa6";
 import { Footer } from "./home";
 import { ScrollGallery } from "~/components/ScrollGallery";
+import getBasicMetaTags from "~/utils/getBasicMetatags";
 
-export function meta({}: Route.MetaArgs) {
-  return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
-  ];
-}
+export const meta = () =>
+  getBasicMetaTags({
+    title: "Blog",
+    description: "Find some design & dev tips",
+  });
 
 export default function Blog() {
   return (
@@ -48,7 +48,7 @@ const BlogCard = ({ tags }: { tags: string[] }) => {
       />
       <div className="bg-[url(/surface.png)] w-full h-full flex items-end pl-4 pb-4 -ml-[1px] mt-[1px] bg-no-repeat z-20 ">
         <div>
-          <h3 className="text-xl font-title w-[80%] mb-3 group-hover:underline transition-all ">
+          <h3 className="text-xl font-title w-[80%] mb-3 group-hover:underline decoration-brand transition-all ">
             Retícula 8pt: ¿Qué es y por qué utilizarla?
           </h3>
           <div className=" flex gap-3 text-graylight">

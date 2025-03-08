@@ -8,33 +8,35 @@ import { FaGithub, FaLinkedinIn, FaStar, FaYoutube } from "react-icons/fa6";
 import { Footer } from "./home";
 import { ScrollGallery } from "~/components/ScrollGallery";
 import { InfiniteMovingCards } from "~/components/InfiniteMoving";
+import getBasicMetaTags from "~/utils/getBasicMetatags";
 
-export function meta({}: Route.MetaArgs) {
-  return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
-  ];
-}
+export const meta = () =>
+  getBasicMetaTags({
+    title: "Resources",
+    description: "Discover an interesting book, doc or course",
+  });
+
 const books = [
   {
     title: "Principles of UX",
     image: "https://i.imgur.com/RMWa8ov.jpg",
     description:
-      "Apende a transimitir información de forma visual (técnicas de dibujo, estructiras, etc).",
+      "Conoce 100 principios UX que todo diseñador debe conocer, con respecto al research, ui, ux e incluso business.",
     rank: 4.8,
+    size: "medium",
   },
   {
     title: "Visual Thinking",
     image: "https://i.imgur.com/RMWa8ov.jpg",
     description:
-      "Apende a transimitir información de forma visual (técnicas de dibujo, estructiras, etc).",
-    rank: 4.8,
+      "Apende a transimitir información de forma visual (técnicas de dibujo, estructuras, storytelling, etc).",
+    rank: 4,
   },
   {
     title: "Lean UX",
     image: "https://i.imgur.com/WBELSMr.jpg",
     description:
-      "Aplicar algunos pasos de la metodología puede ser muy útil pero otros suenan útopicos por el nivel de maduración del área en muchas empresas e industrias.",
+      "Aplicar algunos pasos de la metodología puede ser muy útil pero otros suenan útopicos por el nivel de madurez del área en muchas empresas e industrias.",
     rank: 4,
     size: "large",
   },
@@ -56,78 +58,86 @@ const books = [
     title: "Haz fácil lo imposible",
     image: "https://i.imgur.com/dGWNkGa.jpg",
     description:
-      "Aprende a realizar pruebas de usuario (estructura, herramientas, duración, guión, y más).",
+      "Aprende a realizar pruebas de usuario, desde la estructura, herramientas, duración, guión, y más.",
     rank: 5,
   },
   {
     title: "Emotional design",
     image: "https://i.imgur.com/pdtkrye.jpg",
     description:
-      "El ser humano toma decisiones con base en 3 niveles de procesamiento, visceral, conductual y reflexivo. Conocer cómo funciona cada uno y cómo se relaciona con el diseño.",
+      "El ser humano toma decisiones con base en 3 niveles de procesamiento: visceral, conductual y reflexivo. En el libro concerás cómo funciona cada uno y cómo se relacionan con el diseño.",
     rank: 4.4,
+    size: "extralarge",
   },
   {
     title: "El diseño como storytelling",
     image: "https://i.imgur.com/Ss38sgD.jpg",
     description:
-      "Como seres humanos, nos encantan las historias, aprende a contarlas a través de tus productos o servicios.",
+      "Como seres humanos, nos encantan las historias, el libro te enseña cómo contarlas a través de productos o servicios.",
     rank: 4.8,
+    size: "medium",
   },
   {
     title: "Microcopy",
     image: "https://i.imgur.com/Ka1NTwB.jpg",
     description:
-      "Aprende qué es el microcopy y qué lineamientos seguir para definir el copy de una interfaz digital.",
+      "Muy útil si quieres aprender qué es el microcopy y qué lineamientos seguir para definir el copy de una interfaz digital.",
     rank: 5,
+    size: "medium",
   },
   {
     title: "Experiencia de Usuario",
     image: "https://i.imgur.com/VZaMp0o.jpg",
     description:
-      "Conoce la definición de la experiencia de usuario y todos los conceptos básicos alrededor a ella.",
+      "Es un libro básico que te enseñá la definición de la experiencia de usuario y todos los conceptos básicos alrededor a ella.",
     rank: 4.8,
+    size: "medium",
   },
   {
     title: "SCRUM",
     image: "https://i.imgur.com/JKFzKao.jpg",
     description:
-      "Conoce las bases de la metodología SCRUM y cómo aplicarla en tus proyectos.",
+      "Con él puedes aprender las bases de la metodología SCRUM y cómo aplicarla en tus proyectos.",
     rank: 4.8,
   },
   {
     title: "Design Sprint",
     image: "https://i.imgur.com/l9hq1cC.jpg",
     description:
-      "Adentrate en la metodología, su historia, algunos casos aplicados y el paso a paso para aplicarla.",
+      "Te servirá para addentrarte en la metodología, su historia, algunos casos de éxito y el paso a paso para aplicarla.",
     rank: 4.8,
+    size: "medium",
   },
   {
     title: "Ortotipografía para diseñadores",
     image: "https://i.imgur.com/KzcDdYL.jpg",
     description:
-      "Aprende reglas gramaticales que no conocías y sobre todo el uso correcto de signos de puntuación.",
+      "Aprende reglas gramaticales que no conocías y sobre todo, el uso correcto de signos de puntuación.",
     rank: 4.8,
   },
   {
     title: "Business Model Generation",
     image: "https://i.imgur.com/Wv9auql.jpg",
     description:
-      "En este libro explorarás los distintos tipos de modelo de negocio (cómo son y cómo se aplican), además de lo necesario para desarrollar el tuyo.",
+      "Este libro explora los distintos tipos de modelo de negocio (cómo son y cómo se aplican), además de mostrarte todo lo necesario para desarrollar el tuyo.",
     rank: 4.8,
+    size: "large",
   },
   {
     title: "Más que diseño de experiencia",
     image: "https://i.imgur.com/f2WtwLf.jpg",
     description:
-      "Desde los conceptos hasta procesos, metologías y ética. Te servirá para dar un recorrido rápido por el mundo de la experiencia de usuario.",
+      "Te servirá para dar un recorrido rápido por el mundo de la experiencia de usuario. Desde los conceptos hasta procesos, metologías y ética. ",
     rank: 4.8,
+    size: "large",
   },
   {
     title: "Laws UX",
     image: "https://i.imgur.com/GwySmNv.jpg",
     description:
-      "Conoce de forma simple y práctica las 10 leyes que te ayudarán a tomar decisiones al mapear y diseñar experiencias de usuario.",
+      "Te permite conocer de forma simple y práctica 10 leyes/reglas que te ayudarán a tomar decisiones al mapear y diseñar experiencias de usuario.",
     rank: 4.8,
+    size: "large",
   },
 ];
 
@@ -210,9 +220,9 @@ const docs = [
 ];
 export default function Resources() {
   return (
-    <section className="bg-white">
+    <section className="bg-white overflow-hidden">
       <Navbar />
-      <div className="max-w-7xl mx-auto py-40">
+      <div className="max-w-7xl mx-auto py-40 ">
         <div className=" flex justify-center gap-4">
           <h2 className="text-7xl font-title text-center  ">
             Discover an interesting
@@ -226,7 +236,7 @@ export default function Resources() {
         </h2>
         <InfiniteMovingCards items={books} direction="left" speed="normal" />
       </div>
-      <div className="mt-20">
+      <div className="mt-20 ">
         <h2 className="text-4xl font-title text-left max-w-7xl mx-auto mb-12  ">
           Blogs & Docs
         </h2>
@@ -242,7 +252,7 @@ export default function Resources() {
           Cursos
         </h2>
       </div>
-      <div className="flex gap-12 max-w-7xl mx-auto ">
+      <div className="flex gap-12 max-w-7xl mx-auto pb-32 ">
         <CourseCard
           title="Diseño de Interfaces"
           link="https://ui.fixtergeek.com/"

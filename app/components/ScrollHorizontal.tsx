@@ -17,11 +17,11 @@ export const ScrollHorizontal = () => {
   useMotionValueEvent(scrollYProgress, "change", (latest) => {});
 
   return (
-    <section className="h-[540vh]" ref={ref}>
-      <div className="sticky bg-transparent top-0 w-full overflow-hidden ">
+    <section className="h-[580vh]" ref={ref}>
+      <div className="sticky bg-transparent top-0 w-full overflow-x-hidden ">
         <motion.div
           style={{ x }}
-          className="w-max flex h-screen gap-20 items-center pr-[30vw]"
+          className="w-max flex h-screen gap-20 items-center pr-[40vw] "
         >
           <div className="w-max flex h-screen gap-20 items-center bg-black ">
             <div className="w-[340px]  ml-48 ">
@@ -199,7 +199,7 @@ export const MotionContainer = ({
               {description}
             </p>
 
-            <SimpleButton link={link} />
+            <SimpleButton theme={theme} link={link} />
           </div>
         )}
       </div>
@@ -207,10 +207,24 @@ export const MotionContainer = ({
   );
 };
 
-export const SimpleButton = ({ link }: { link: string }) => {
+export const SimpleButton = ({
+  link,
+  theme,
+}: {
+  link: string;
+  theme: string;
+}) => {
   return (
     <Link to={link}>
-      <button className="w-fit px-4 bg-dark/10 flex items-center gap-2 text-black rounded-full mt-6 h-10 hover:bg-black hover:text-white transition-all cursor-pointer">
+      <button
+        className={cn(
+          "w-fit px-4 bg-dark/10 flex items-center gap-2 text-black rounded-full mt-6 h-10 hover:bg-black hover:text-white transition-all cursor-pointer",
+          {
+            "bg-white/10 text-white hover:bg-white hover:text-black":
+              theme === "dark",
+          }
+        )}
+      >
         Explore
         <FaArrowTrendUp />
       </button>{" "}
@@ -218,6 +232,21 @@ export const SimpleButton = ({ link }: { link: string }) => {
   );
 };
 
-export const Tag = ({ label }: { label: string }) => {
-  return <div className="text-sm">{label}</div>;
+export const Tag = ({
+  label,
+  variant,
+}: {
+  label: string;
+  variant?: string;
+}) => {
+  return (
+    <div
+      className={cn("text-sm", {
+        "border border-gray-500/20 px-1 rounded text-gray-500":
+          variant === "outline",
+      })}
+    >
+      {label}
+    </div>
+  );
 };

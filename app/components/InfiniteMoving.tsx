@@ -102,8 +102,8 @@ export const InfiniteMovingCards = ({
         ) : (
           <>
             {items.map((item, i) => (
-              <div className="w-[220px] group pb-10 " key={i}>
-                <div className=" p-0 rounded-4xl relative">
+              <div className="w-[220px] group pb-0 cursor-pointer  " key={i}>
+                <div className=" p-0 rounded-4xl relative  ">
                   <img
                     className="absolute hidden group-hover:block -top-20 -right-20 "
                     src="/loader.gif"
@@ -114,8 +114,12 @@ export const InfiniteMovingCards = ({
                   />
                   <div
                     className={cn(
-                      "bg-black absolute w-full h-0 min-h-0 group-hover:min-h-[160px] opacity-0 group-hover:opacity-100 -bottom-10 rounded-2xl -rotate-6 py-6 px-4 transition-all",
-                      { "group-hover:min-h-[220px]": item.size === "large" }
+                      "bg-black absolute w-full h-20 min-h-20  group-hover:min-h-[160px] opacity-0 group-hover:opacity-100 -bottom-10 rounded-2xl -rotate-6 py-6 px-4 transition-all overflow-hidden",
+                      { "group-hover:min-h-[220px]": item.size === "large" },
+                      { "group-hover:min-h-[180px]": item.size === "medium" },
+                      {
+                        "group-hover:min-h-[240px]": item.size === "extralarge",
+                      }
                     )}
                   >
                     <div className="text-amber-300 flex items-center">

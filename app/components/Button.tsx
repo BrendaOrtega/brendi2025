@@ -37,7 +37,7 @@ export const Button = ({
           { "bg-white text-black": variant === "white" }
         )}
       >
-        <p>{label ? label : "Let's talk"}</p>
+        <p>{label ? label : "Let's talk!"}</p>
       </button>
     </motion.div>
   );

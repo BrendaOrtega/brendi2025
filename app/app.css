@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&display=swap");
+
 @import "tailwindcss";
 
 @font-face {
@@ -21,9 +23,13 @@
   --color-dark: #171717;
   --color-brand: #9346ed;
   --color-graylight: #747474;
+  --color-flink: #118178;
   --animate-scrolling: scrolling 40s linear infinite;
 }
 
+.font-logo {
+  font-family: "Delius Swash Caps", cursive;
+}
 body {
   background-color: black;
 }

@@ -83,21 +83,26 @@ export const Navbar = () => {
 
   return (
     <section
+      id="top"
       ref={scope}
-      className=" w-full relative px-6 md:px-[12%] lg:px-[5%] xl:px-0  bg-white   z-[100]"
+      className=" w-full relative px-6 md:px-[12%] lg:px-[5%] xl:px-0  bg-white  z-[100]"
     >
       <nav className="flex relative z-[120] max-w-7xl mx-auto py-2 items-center justify-between ">
-        <Link to="/" className=" relative">
+        <Link to="/" className=" relative  w-fit">
           {" "}
           <Michi />
-          <div className="absolute h-16 left-0  pl-20 top-0 flex items-center">
-            Brenda
+          <div className="absolute flex gap-1 pt-5  left-0  pl-20 top-0 text-xl  font-logo">
+            <span> Brenda</span>
+            <span>GO</span>
           </div>
         </Link>
         <div className="md:flex items-center gap-8 hidden ">
           <SquigglyUnderline />
         </div>
-        <Button />
+        <Link to="/contact">
+          <Button />
+        </Link>
+
         <Burger onClick={toggleMenu} isOpen={isOpen} />
       </nav>
       <motion.div

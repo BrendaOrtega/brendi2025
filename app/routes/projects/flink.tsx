@@ -6,7 +6,7 @@ export default function flink() {
   return (
     <main className="bg-white">
       <Navbar />
-      <section className="max-w-7xl mx-auto  w-[90%] md:w-ful pt-[120px] md:pt-[200px] pb-20">
+      <section className="max-w-7xl mx-auto  w-[90%] md:w-ful pt-16  pb-20">
         <div className="w-full bg-[url('/projects/flink/back.png')] h-[280px] md:h-[680px] overflow-hidden rounded-[40px]  bg-cover">
           <img
             className="h-auto w-full md:w-[80%] mx-auto "
@@ -18,8 +18,8 @@ export default function flink() {
           <div className="w-full md:w-[30%] relative">
             <Link to="/">
               <p className="uppercase text-white/30 text-xs absolute -top-10">
-                <span className="hover:text-ironblue"> Projects </span> ⇢{" "}
-                <span className="text-white"> Flink</span>
+                <span className="hover:text-flink font-bold"> Projects </span> ⇢{" "}
+                <span className="text-black"> Flink</span>
               </p>
             </Link>
             <a
@@ -32,26 +32,31 @@ export default function flink() {
                 src="/projects/flink/Flink.png"
               />
             </a>
-            <div className="flex flex-wrap gap-4 mt-6">
-              <Tag label="Mobile App" />
-              <Tag label="Product Design" />
-              <Tag label="Fintech" />
-              <Tag label="Figma" />
+            <div className="flex flex-wrap gap-3 mt-6">
+              <Tag variant="outline" label="Product Design" />
+              <Tag variant="outline" label="App" />
+              <Tag variant="outline" label="Fintech" />
+              <Tag variant="outline" label="Figma" />
             </div>
-            <p className="text-white font-bold text-xl mt-10 mb-1">Date</p>
+            <p className="text-black font-title font-bold text-xl mt-10 mb-1">
+              Date
+            </p>
             <p className="text-base text-iron-500 text-black ">
               November 2022 - July 2023
             </p>
-            <p className="text-white font-bold text-xl mt-10 mb-1">Role</p>
+            <p className="text-black font-title font-bold text-xl mt-10 mb-1">
+              Role
+            </p>
             <p className="text-base text-iron-500 text-black ">
               Product Designer
             </p>
           </div>
           <div className="w-full md:w-[70%]">
-            <p className="text-xl md:text-2xl text-black">
-              Flink is a <span className="text-ironblue">Fintech Startup</span>{" "}
+            <p className="text-xl md:text-2xl text-black ">
+              Flink is a{" "}
+              <span className="text-flink  font-bold">Fintech Startup</span>{" "}
               that seeks to{" "}
-              <span className="text-ironblue">
+              <span className="text-flink font-bold">
                 {" "}
                 democratize stock investments.{" "}
               </span>
@@ -66,7 +71,7 @@ export default function flink() {
             <p className="text-xl md:text-2xl text-black mt-6">
               When I joined the company, the app was in the official store
               but was experiencing three challenges.{" "}
-              <span className="text-ironblue">
+              <span className="text-flink font-bold">
                 The volume of daily transactions wasn´t increasing enough, the
                 users didn’t have the best experience with the app, so they
                 found it difficult to make investment decisions,
@@ -80,9 +85,9 @@ export default function flink() {
             </p>
           </div>
         </div>
-        <hr className="h-[1px] border-[.5px] w-full border-white/15 my-12 md:my-28"></hr>
+        <hr className="h-[1px] border-[.5px] w-full border-black/30 border-dashed my-12 md:my-28"></hr>
         <div>
-          <h2 className="text-3xl md:text-4xl font-title font-bold text-white ">
+          <h2 className="text-3xl md:text-4xl font-title font-bold text-black">
             Personas
           </h2>
           <p className="text-xl md:text-2xl text-black mt-6">
@@ -116,9 +121,9 @@ export default function flink() {
             </div>
           </div>
         </div>
-        <hr className="h-[1px] border-[.5px] w-full border-white/15 my-12 md:my-28"></hr>{" "}
+        <hr className="h-[1px] border-[.5px] w-full border-black/30 border-dashed my-12 md:my-28"></hr>{" "}
         <div>
-          <h2 className="text-3xl md:text-4xl font-title font-bold text-white ">
+          <h2 className="text-3xl md:text-4xl font-title font-bold text-black">
             Understanding the problem - User needs
           </h2>
           <p className="text-xl md:text-2xl text-black mt-6">
@@ -139,9 +144,9 @@ export default function flink() {
             <img className="" src="/projects/flink/img1.png" />
           </div>
         </div>
-        <hr className="h-[1px] border-[.5px] w-full border-white/15 my-12 md:my-28"></hr>{" "}
+        <hr className="h-[1px] border-[.5px] w-full border-black/30 border-dashed my-12 md:my-28"></hr>{" "}
         <div>
-          <h2 className="text-3xl md:text-4xl font-title font-bold text-white ">
+          <h2 className="text-3xl md:text-4xl font-title font-bold text-black">
             What did data tell us?
           </h2>
           <p className="text-xl md:text-2xl text-black mt-6">
@@ -150,28 +155,31 @@ export default function flink() {
           <ul>
             <li className="text-xl md:text-2xl text-black mt-6">
               {" "}
-              <span className="text-ironblue"> • 41% of users</span> use their
-              application daily
+              <span className="text-flink font-bold"> • 41% of users</span> use
+              their application daily
             </li>
             <li className="text-xl md:text-2xl text-black mt-6">
               {" "}
-              <span className="text-ironblue"> • </span>Just under{" "}
-              <span className="text-ironblue"> 23% </span> invest in stocks once
-              per week
+              <span className="text-flink font-bold"> • </span>Just under{" "}
+              <span className="text-flink font-bold"> 23% </span> invest in
+              stocks once per week
             </li>
             <li className="text-xl md:text-2xl text-black mt-6">
               {" "}
-              <span className="text-ironblue"> •</span> 50% of users feel that
-              having more data
-              <span className="text-ironblue">
+              <span className="text-flink font-bold"> •</span> 50% of users feel
+              that having more data
+              <span className="text-flink font-bold">
                 {" "}
                 helps them make better decisions
               </span>
             </li>
             <li className="text-xl md:text-2xl text-black mt-6">
               {" "}
-              <span className="text-ironblue"> • 28% of users </span> want
-              financial education
+              <span className="text-flink font-bold">
+                {" "}
+                • 28% of users{" "}
+              </span>{" "}
+              want financial education
             </li>
           </ul>
           <div className="flex justify-around mt-20 flex-wrap md:flex-nowrap">
@@ -179,9 +187,9 @@ export default function flink() {
             <img className="h-36" src="/projects/flink/comment2.svg" />
           </div>
         </div>
-        <hr className="h-[1px] border-[.5px] w-full border-white/15 my-12 md:my-28"></hr>{" "}
+        <hr className="h-[1px] border-[.5px] w-full border-black/30 border-dashed my-12 md:my-28"></hr>{" "}
         <div>
-          <h2 className="text-3xl md:text-4xl font-title font-bold text-white ">
+          <h2 className="text-3xl md:text-4xl font-title font-bold text-black">
             Plan of Action
           </h2>
           <p className="text-xl md:text-2xl text-black mt-6">
@@ -203,9 +211,9 @@ export default function flink() {
             <img className="w-[480px]" src="/projects/flink/img4.png" />
           </div>
         </div>
-        <hr className="h-[1px] border-[.5px] w-full border-white/15 my-12 md:my-28"></hr>{" "}
+        <hr className="h-[1px] border-[.5px] w-full border-black/30 border-dashed my-12 md:my-28"></hr>{" "}
         <div>
-          <h2 className="text-3xl md:text-4xl font-title font-bold text-white ">
+          <h2 className="text-3xl md:text-4xl font-title font-bold text-black ">
             Ideation & Prototyping
           </h2>
           <p className="text-xl md:text-2xl text-black mt-6">
@@ -217,7 +225,7 @@ export default function flink() {
                 className="rounded-2xl h-[200px] w-full object-cover"
                 src="/projects/flink/img5.png"
               />
-              <h3 className="text-white text-xl mt-6">A sketching session</h3>
+              <h3 className="text-black text-xl mt-6">A sketching session</h3>
               <p className="text-xl text-black mt-2">
                 We used this session to explore different design proposals and
                 conduct a deeper analysis of the best ideas to choose one to
@@ -230,7 +238,7 @@ export default function flink() {
                 className="rounded-2xl h-[200px] object-cover w-full border border-white/10"
                 src="/projects/flink/img7.png"
               />
-              <h3 className="text-white text-xl mt-6">
+              <h3 className="text-black text-xl mt-6">
                 Prototyping and testing
               </h3>
               <p className="text-xl text-black mt-2">
@@ -245,7 +253,7 @@ export default function flink() {
                 className="rounded-2xl h-[200px] object-cover w-full"
                 src="/projects/flink/img6.png"
               />
-              <h3 className="text-white text-xl mt-6">
+              <h3 className="text-black text-xl mt-6">
                 High fidelity Wireframes
               </h3>
               <p className="text-xl text-black mt-2">
@@ -255,7 +263,7 @@ export default function flink() {
               </p>
             </div>
           </div>
-          <h2 className="text-3xl md:text-4xl font-title font-bold text-white  mt-28">
+          <h2 className="text-3xl md:text-4xl font-title font-bold text-black  mt-28">
             Design
           </h2>
           <p className="  text-black text-xl mt-10">
@@ -281,9 +289,9 @@ export default function flink() {
             <img className="w-[80%]" src="/projects/flink/img10.png" />
           </div>
         </div>
-        <hr className="h-[1px] border-[.5px] w-full border-white/15 my-12 md:my-28"></hr>{" "}
+        <hr className="h-[1px] border-[.5px] w-full border-black/30 border-dashed my-12 md:my-28"></hr>{" "}
         <div>
-          <h2 className="text-3xl md:text-4xl font-title font-bold text-white ">
+          <h2 className="text-3xl md:text-4xl font-title font-bold text-black ">
             Measuring Success & Next steps
           </h2>
           <p className="text-xl md:text-2xl text-black mt-6">

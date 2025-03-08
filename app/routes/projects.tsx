@@ -2,13 +2,13 @@ import type { Route } from "./+types/home";
 import { Navbar } from "~/components/Navbar";
 import { Footer } from "./home";
 import { MotionContainer } from "~/components/ScrollHorizontal";
+import getBasicMetaTags from "~/utils/getBasicMetatags";
 
-export function meta({}: Route.MetaArgs) {
-  return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
-  ];
-}
+export const meta = () =>
+  getBasicMetaTags({
+    title: "Projects",
+    description: "Take a look at my projects",
+  });
 
 export default function Blog() {
   return (
@@ -23,33 +23,45 @@ export default function Blog() {
         </div>
         <div className="flex justify-betcenter gap-20 flex-wrap mt-40 ">
           {" "}
+          <MotionContainer
+            className="bg-[#B097E3]"
+            id="uno"
+            link="/easybits"
+            img="/easybits.png"
+            tags={["Product Design", "Webapp", "Frontend", "Saas"]}
+            title="EasyBits"
+            description="Unlocking online payments for creatives and digital content professionals"
+            imageClassName="top-40 -right-28 group-hover:-right-20 transition-all "
+          />
           <div className="mt-16">
             <MotionContainer
-              id="uno"
-              img="/easybits.png"
-              tags={["Cocina", "Porgramación", "Comedia"]}
-              title="EasyBits"
-              description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim ab ipsa
-                  odio velit praesentium?"
+              link="/flink"
+              id="dos"
+              img="/flink.png"
+              // className="bg-[#B097E3]"
+              className="bg-[#0CCCB3]"
+              tags={["Product Design", "App", "Fintech"]}
+              title="Flink"
+              description="Democratizing access to stock market investments in Mexico"
+              imageClassName="top-0 -left-14 group-hover:scale-110 "
             />
           </div>
           <MotionContainer
-            link="/flink"
-            id="dos"
-            img="/flink.png"
-            // className="bg-[#B097E3]"
-            className="bg-[#0CCCB3]"
-            tags={["Product Design", "Fintech"]}
-            title="Flink"
-            description="Democratizing access to stock market investments in Mexico"
-            imageClassName="top-0 -left-14 group-hover:scale-110 "
+            link="/denik"
+            img="/denik.png"
+            className="bg-[#FFD25C]"
+            id="tres"
+            tags={["Product Design", "Frontend", "Webapp", "Saas"]}
+            title="Deník"
+            description="The agenda to manage appointments, payments and reminders for entrepreneurs and small businesses"
+            imageClassName="top-20 scale-80 group-hover:scale-90 group-hover:translate-y-10"
           />
           <div className="mt-16">
             <MotionContainer
               link="/token"
               img="/token.png"
               className="bg-[#45C893]"
-              tags={["UX Design", "Fintech"]}
+              tags={["UX Design", "App", "Fintech"]}
               title="Constructoken"
               description="Offering financial solutions and construction options for self-produced housing"
               imageClassName="-right-0 top-0 group-hover:scale-110"
@@ -58,17 +70,17 @@ export default function Blog() {
           <MotionContainer
             link="/covalto"
             img="/covalto.svg"
-            tags={["Product Design", "Fintech"]}
+            tags={["Product Design", "App", "Fintech"]}
             title="Covalto"
             description="The Financial solution to manage expenses for Business"
             imageClassName="w-[60%] top-54 left-[20%] right-0 bottom-0 group-hover:scale-80 "
           />
           <div className="mt-16">
             <MotionContainer
-              link="/personal"
+              link="/reform"
               img="/reform.png"
               className="bg-[#B097E3]"
-              tags={["UI Design", "AI", "Marketplace"]}
+              tags={["UI Design", "Prototyping", "App", "AI"]}
               title="Reform AI"
               description="Renovate your spaces using artificial intelligence and buy the furniture and services that you need in one place"
               imageClassName="-right-0 top-32 scale-120 group-hover:scale-110"
@@ -78,7 +90,7 @@ export default function Blog() {
             link="/personal"
             img="/personal.png"
             className="bg-[#F2B590]"
-            tags={["Cocina", "Porgramación", "Comedia"]}
+            tags={["Product Design", "App", "Webapp", "Banking"]}
             title="Santander"
             description="Web & Mobile App to access to financial services including payments, transfers and management"
             imageClassName="-right-0 -top-48 group-hover:scale-110"
@@ -89,78 +101,70 @@ export default function Blog() {
               className="bg-[#0E0E10]"
               link="/ui"
               img="/ui-fx.png"
-              tags={["Design", "Development", "E-learning"]}
+              tags={["Design", "Webapp", "Frontend", "E-learning"]}
               title="UI Course"
               imageClassName="-right-0 top-20 group-hover:-translate-x-16"
-              description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim ab ipsa
-                  odio velit praesentium?"
+              description="A complete course to learn UI Design from the principles to practice"
             />
           </div>
           <MotionContainer
             className="bg-[#F1ABA5]"
-            link="/ui"
+            link="/lastplay"
             img="/play.png"
-            tags={["Cocina", "Porgramación", "Comedia"]}
+            tags={["UI Design", "App", "Sports"]}
             title="LastPlay"
             imageClassName="-right-16 top-20 group-hover:-translate-x-14 scale-120"
-            description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim ab ipsa
-                  odio velit praesentium?"
+            description="The management application to organize and manage sports tournaments"
           />
           <div className="mt-16">
             <MotionContainer
-              link="/ui"
+              link="/e4pros"
               img="/pros.png"
               className="bg-[#A3BC73]"
-              tags={["Cocina", "Porgramación", "Comedia"]}
+              tags={["UX Design", "Website", "UI Design", "E-learning"]}
               title="English for Professionals"
-              description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim ab ipsa
-                  odio velit praesentium?"
-              imageClassName="-right-16 top-20 group-hover:-translate-x-16 group-hover:translate-y-6 "
+              description="English courses for all levels, business and tourism orientation or personalized courses"
+              imageClassName="-right-16 top-20 group-hover:-translate-x-16 group-hover:translate-y-6 transition-all"
+            />
+          </div>
+          <MotionContainer
+            className="bg-[#E9786E]"
+            link="/propiedades"
+            img="/projects/inmuebles.png"
+            tags={["Product Design", "Prototyping", "Webapp"]}
+            title="Propiedades"
+            description="Facilitating the process of buying and selling real estate properties for clients and sellers"
+            imageClassName="left-0 right-0 -top-10 scale-75 transition-all rounded-xl"
+          />
+          <div className="mt-16">
+            <MotionContainer
+              link="/fixter"
+              img="/projects/org.png"
+              className="bg-[#85DDCB]"
+              tags={["Product Design", "Frontend", "Website", "Services"]}
+              title="Fixter.org"
+              description="Showing the b2b services we offer and our selected projects catalogue "
+              imageClassName="left-0 right-0 top-28 -rotate-6 scale-80 group-hover:rotate-6 group-hover:scale-75 transition-all"
             />
           </div>
           <MotionContainer
             className="bg-[#F85387]"
-            tags={["Cocina", "Porgramación", "Comedia"]}
+            img="/projects/potentiia.png"
+            link="/potentia"
+            tags={["UX/UI Design", "Website", "Frontend"]}
             title="Potentiia"
-            description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim ab ipsa
-                  odio velit praesentium?"
+            description="Helping people to get their goals through sport and business coaching programs "
+            imageClassName="m-[20%] w-[60%] top-48 "
           />
           <div className="mt-16">
             <MotionContainer
-              tags={["Cocina", "Porgramación", "Comedia"]}
+              link="/azteca"
+              img="/projects/azteca.png"
+              className="bg-[#93E6EB]"
+              tags={["UX/UI Design", "E-commerce", "Health"]}
               title="Laboratorios Azteca"
-              description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim ab ipsa
-                  odio velit praesentium?"
-            />
-          </div>
-          <MotionContainer
-            className="bg-[#F85387]"
-            tags={["Cocina", "Porgramación", "Comedia"]}
-            title="Deník"
-            description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim ab ipsa
-                  odio velit praesentium?"
-          />
-          <div className="mt-16">
-            <MotionContainer
-              tags={["Cocina", "Porgramación", "Comedia"]}
-              title="Propiedades"
-              description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim ab ipsa
-                  odio velit praesentium?"
-            />
-          </div>
-          <MotionContainer
-            className="bg-[#F85387]"
-            tags={["Cocina", "Porgramación", "Comedia"]}
-            title="Fixter.org"
-            description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim ab ipsa
-                  odio velit praesentium?"
-          />
-          <div className="mt-16">
-            <MotionContainer
-              tags={["Cocina", "Porgramación", "Comedia"]}
-              title="EasyBits"
-              description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim ab ipsa
-                  odio velit praesentium?"
+              description="Digitizing access to clinical studies through e-commerce "
+              imageClassName="right-0 left-0 top-10 scale-80 "
             />
           </div>
         </div>

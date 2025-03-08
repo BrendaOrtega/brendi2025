@@ -7,13 +7,13 @@ import { AiFillInstagram } from "react-icons/ai";
 import { FaGithub, FaLinkedinIn, FaYoutube } from "react-icons/fa6";
 import { Footer } from "./home";
 import { ScrollGallery } from "~/components/ScrollGallery";
+import getBasicMetaTags from "~/utils/getBasicMetatags";
 
-export function meta({}: Route.MetaArgs) {
-  return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
-  ];
-}
+export const meta = () =>
+  getBasicMetaTags({
+    title: "Saas",
+    description: "Take a look at my personal projects",
+  });
 
 export default function Saas() {
   return (
